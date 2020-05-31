@@ -5,5 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use BillsController
+use SessionsController
 use UsersController
 run ApplicationController
