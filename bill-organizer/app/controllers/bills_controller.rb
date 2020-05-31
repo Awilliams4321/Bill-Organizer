@@ -15,7 +15,7 @@ class BillsController < ApplicationController
         redirect "/bills/#{@bill.id}"
     end 
 
-    get '/bill/:id' do
+    get '/bills/:id' do
         @bill = Bill.find(params[:id])
         erb :'/bills/show'
     end
