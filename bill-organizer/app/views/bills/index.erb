@@ -1,3 +1,12 @@
+<h1><form method="POST" action='logout'>
+      <input type="submit" name="submit" value="LOG OUT">
+</form>
+</h1>
+
+<h2>Below are a list of all bills you have added to the Organizer! Click on a bill for more details.</h2>
+
+<ul>
 <% @bills.each do |obj| %>
         <li> <a href= "/bills/<%= obj.id %>"><%= obj.name %></a></li>
     <% end %>
+</ul>    
