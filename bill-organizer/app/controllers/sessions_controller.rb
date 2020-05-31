@@ -4,9 +4,15 @@ class SessionsController < ApplicationController
          erb :'sessions/new'
     end
 
-    post '/login' do
-
+    get '/logout' do
+        session.clear
+        redirect to '/'
     end
+
+    post '/logout' do
+        session.clear
+        redirect to "/"
+    end 
 
 
 end
