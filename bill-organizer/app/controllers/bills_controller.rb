@@ -15,10 +15,17 @@ class BillsController < ApplicationController
         redirect "/bills/#{@bill.id}"
     end 
 
-    get '/bills/:id' do
+    get '/bills/:id' do #READ
         @bill = Bill.find(params[:id])
         erb :'/bills/show'
     end
+
+    get '/bills' do 
+        @bills = Bill.all
+        erb :'bills/index'
+    end
+
+
 
 
 end
