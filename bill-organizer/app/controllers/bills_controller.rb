@@ -12,6 +12,7 @@ class BillsController < ApplicationController
             monthly_payment: params[:monthly_payment],
             due_date: params[:due_date]
         )
+        redirect "/bills/#{@bill.id}"
     end 
 
 
