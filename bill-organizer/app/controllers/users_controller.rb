@@ -5,13 +5,18 @@ class UsersController < ApplicationController
     end
 
     post '/users' do 
-        new_user = User.new(username: params[:username], email: params[:email], password: params[:password])
-        if new_user.save
-            session[:user_id] = new_user.id
-            redirect to 'users/show'
+        @new_user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        if @new_user.save
+            redirect "/users/#{@new_user.id}"
         else
-            redirect to 'users/signup'
+            redirect "/users/signup"
         end
     end
+
+    get '/users/:id' do
+        erb :'users/show'
+    end 
+
+
 
 end
