@@ -1,0 +1,15 @@
+<h1> Fill Out the Form Below To Track This Bill</h1><br>
+
+<form method="POST" action='/bills'>
+    <h2>Bill Name: <input type="text" name="name" placeholder="Ex: 'Car Payment'"></h2>
+    <br> 
+    Creditor: <input type="text" name="creditor" placeholder="Ex: Suntrust Bank"><br>
+    <br>
+    Total Balance (for loans): $ <input type="number" name="balance_owed"><br>
+    <br>
+    Monthly Payment: $ <input type="number" name="monthly_payment"><br>
+    <br>
+    Due By Date (each month): <input type="text" name="due_date" placeholder="Ex: 25th"><br>
+    <br>
+    <input type="submit" name="submit" value="Save Bill To Organizer"><br>
+</form>
