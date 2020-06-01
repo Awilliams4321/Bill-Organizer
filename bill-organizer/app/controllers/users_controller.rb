@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     end
 
     post '/users' do 
-        @new_user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        @new_user = User.new(email: params[:email], password: params[:password])
         if @new_user.save
             redirect "/users/#{@new_user.id}"
         else
