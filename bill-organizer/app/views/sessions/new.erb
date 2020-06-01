@@ -1,3 +1,16 @@
-<h1> Welcome back to BillPro! </h1>
+<header>
+    <h1> Welcome back to BillTracker! </h1>
+    <p>~ The app that helps you organize your bills ~</p>
 
-<p> You currently have <%= Bill.count %> saved bills. To add another bill to your Organizer, <a href="/bills/new">Track a New Bill</a> here. 
+    <h2><p> Log in below to get started!</p></h2>
+
+    <form method="POST" action='/login'>
+        <input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password"><br>
+        <br>
+        <input type="submit" name="submit" value="Log In"><br>
+    </form><br>
+
+    <img src="https://images.unsplash.com/photo-1561414926-0ae39e14fc4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" id="main photo">
+    
+</header> 
