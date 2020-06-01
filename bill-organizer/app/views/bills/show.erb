@@ -1,4 +1,11 @@
-<h1><%= @bill.name %></h1>
+<h1><form method="POST" action='/logout'>
+      <input type="submit" name="submit" value="LOG OUT">
+</form>
+</h1>
+
+<h2> Your <%= @bill.name %> has been saved to your Organizer! </h2><br>
+<p>The details are below:</p>
+<h2><%= @bill.name %></h2>
 <br>
 Creditor: <%= @bill.creditor %><br>
 <br>
@@ -6,5 +13,9 @@ Remaining Balance (for loans): $ <%= @bill.balance_owed %><br>
 <br>
 Monthly Payments: $ <%= @bill.monthly_payment %><br>
 <br>
-Due Date (each month): <%= @bill.due_date %>
+Due Date (each month): <%= @bill.due_date %><br>
+<br>
+
+<a href="/bills/new">Track a New Bill</a> here ~or~ <a href="/bills">Review your bills in Organizer</a>
+
         
