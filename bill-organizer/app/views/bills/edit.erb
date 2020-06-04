@@ -1,0 +1,23 @@
+<h1><form method="POST" action='/logout'>
+      <input type="submit" name="submit" value="LOG OUT">
+</form>
+</h1>
+
+<h2> Fill Out the Form Below To Track This Bill</h2><br>
+
+<form method="POST" action='/bills/<%= @bill.id %>'>
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <h2>Bill Name: <input type="text" value="<%= @bill.name %>" name="name" placeholder="Ex: 'Car Payment'"></h2>
+    <br> 
+    Creditor: <input type="text" value="<%= @bill.creditor %>"  name="creditor" placeholder="Ex: 'Suntrust Bank'"> * optional<br>
+    <br>
+    Remaining Balance (for loans): $ <input type="number" value="<%= @bill.balance_owed %>" name="balance_owed" placeholder="Ex: '1,000.00'"><br>
+    <br>
+    Monthly Payment: $ <input type="number" value="<%= @bill.monthly_payment %>"  name="monthly_payment" placeholder="Ex: '244.50'"><br>
+    <br>
+    Due Date (each month): <input type="text" value="<%= @bill.due_date %>"  name="due_date" placeholder="Ex: '25th'"><br>
+    <br>
+    <input type="submit" name="submit" value="Save Bill To Organizer"><br>
+</form>
+
+
