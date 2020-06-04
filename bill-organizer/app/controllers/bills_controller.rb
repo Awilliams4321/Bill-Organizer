@@ -44,9 +44,9 @@ class BillsController < ApplicationController
     end 
 
     delete '/bills/:id' do
-        @order = Order.(params[:id])
-        @order.destroy
-        redirect "/bills"
+        @bills = Bills.(params[:id])
+        @bills.destroy
+        redirect '/bills'
     end
 
 
