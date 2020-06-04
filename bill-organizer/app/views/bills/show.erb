@@ -16,6 +16,11 @@ Monthly Payments: $ <%= @bill.monthly_payment %><br>
 Due Date (each month): <%= @bill.due_date %><br>
 <br>
 
+<h2><form method="POST" action="/bills/ <%= @bill.id %>">
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+</form></h2><br>
+
 <a href="/bills/new">Track a New Bill</a> here ~or~ <a href="/bills">Review your bills in Organizer</a>
 
         
