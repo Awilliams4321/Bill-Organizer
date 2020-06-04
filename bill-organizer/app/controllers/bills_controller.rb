@@ -25,7 +25,29 @@ class BillsController < ApplicationController
         erb :'bills/index'
     end
 
+    get '/bills/:id/edit' do #UPDATE
+        @bill = Bill.find(params[:id])
+        erb :'bills/edit'
+    end 
 
+    post '/bills/:id' do
+        @bill = Bill.find(params[:id])
+        @bill.update(
+            name: params[:name],
+            creditor: params[:creditor],
+            balance_owed: params[:balance_owed],
+            monthly_payment: params[:monthly_payment],
+            due_date: params[:due_date]
+        )
+        redirect "/bills/#{@bill.id}"
+
+    end 
+
+    delete '/bills/:id' do
+        @order = Order.(params[:id])
+        @order.destroy
+        redirect "/bills"
+    end
 
 
 end
