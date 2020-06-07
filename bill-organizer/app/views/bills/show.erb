@@ -3,7 +3,7 @@
 </form>
 </h1>
 
-<h2> Your <%= @bill.name %> has been saved to your Organizer! </h2><br>
+<h2> Your bill has been saved to your Organizer! </h2><br>
 <p>The details are below:</p>
 <h2><%= @bill.name %></h2>
 <br>
@@ -13,8 +13,10 @@ Remaining Balance (for loans): $ <%= @bill.balance_owed %><br>
 <br>
 Monthly Payments: $ <%= @bill.monthly_payment %><br>
 <br>
-Due Date (each month): <%= @bill.due_date %><br>
+Due Date (each month): <%= @bill.due_date %>th<br>
 <br>
+
+<p><a href="/bills/<%= @bill.id%>/edit">Edit Bill</a></p> 
 
 <h2><form method="POST" action="/bills/ <%= @bill.id %>">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
