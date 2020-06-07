@@ -9,7 +9,7 @@
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <h2>Bill Name: <input type="text" value="<%= @bill.name %>" name="name" placeholder="Ex: 'Car Payment'"></h2>
     <br> 
-    Creditor: <input type="text" value="<%= @bill.creditor %>"  name="creditor" placeholder="Ex: 'Suntrust Bank'"> * optional<br>
+    Creditor: <input type="text" value="<%= @bill.creditor %>"  name="creditor" placeholder="Ex: 'Suntrust Bank'"> <b>* optional</b><br>
     <br>
     Remaining Balance (for loans): $ <input type="number" value="<%= @bill.balance_owed %>" name="balance_owed" placeholder="Ex: '1,000.00'"><br>
     <br>
