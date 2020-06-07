@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     post '/users' do 
         if params[:email] == "" && params[:password] == ""
+            #flash[:error] = "Invalid Email or Password. Please Try Again."
             redirect "/users/signup"
         else
             @new_user = User.create(email: params[:email], password: params[:password])
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @user = User.find(params[:id])
+        @new_user = User.find(params[:id])
         erb :'users/show'
     end 
 
