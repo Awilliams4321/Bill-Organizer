@@ -30,7 +30,7 @@ class BillsController < ApplicationController
         erb :'bills/edit'
     end 
 
-    post '/bills/:id' do
+    patch '/bills/:id' do
         @bill = Bill.find(params[:id])
         @bill.update(
             name: params[:name],
@@ -43,10 +43,10 @@ class BillsController < ApplicationController
 
     end 
 
-    delete '/bills/:id' do
-        @bills = Bills.(params[:id])
-        @bills.destroy
-        redirect '/bills'
+    delete '/bills/:id' do #DELETE
+        @bill = Bill.find(params[:id])
+        @bill.destroy
+        redirect "/bills"
     end
 
 
