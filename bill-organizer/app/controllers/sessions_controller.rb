@@ -10,14 +10,19 @@ class SessionsController < ApplicationController
 
 
     post '/login' do 
-        @new_user = User.find_by(email: params[:email])
+        @user = User.find_by(email: params[:email])
 
-        if @new_user && @new_user.authenticate(params[:password])
-            session[:user_id] = @new_user.id
-            redirect "/sessions/show"
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect "/sessions/#{@user.id}"
         else
             erb :'/sessions/new'
         end
+    end 
+
+    get '/sessions/:id' do
+        @user = User.find(params[:id])
+        erb :'sessions/show'
     end 
 
     get '/logout' do
