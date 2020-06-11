@@ -69,11 +69,9 @@ class BillsController < ApplicationController
         redirect to "/" if !is_logged_in?
         bill = Bill.find_by_id(params[:id])
 
-        if bill && bill.user_id == current_user.id 
-            bill.destroy if bill && bill.user_id == current_user.id
-        else
+         bill.destroy if bill && bill.user_id == current_user.id
             redirect to "/bills"
-        end
+        
     end
 
 end
