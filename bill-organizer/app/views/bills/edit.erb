@@ -11,11 +11,11 @@
     <br> 
     Creditor: <input type="text" value="<%= @bill.creditor %>"  name="creditor" placeholder="Ex: 'Suntrust Bank'"> <b>* optional</b><br>
     <br>
-    Remaining Balance (for loans): $ <input type="number" value="<%= @bill.balance_owed %>" name="balance_owed" placeholder="Ex: '1,000.00'"><br>
-    <br>
     Monthly Payment: $ <input type="number" value="<%= @bill.monthly_payment %>"  name="monthly_payment" placeholder="Ex: '244.50'"><br>
     <br>
     Due Date (each month): <input type="text" value="<%= @bill.due_date %>"  name="due_date" placeholder="Ex: '25th'"><br>
+    <br>
+    Remaining Balance (for loans): $ <input type="number" value="<%= @bill.balance_owed %>" name="balance_owed" placeholder="Ex: '1,000.00'"> <b>*optional</b><br>
     <br>
     <input type="submit" name="submit" value="Save Bill To Organizer"><br>
 </form>
