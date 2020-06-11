@@ -24,29 +24,41 @@ class BillsController < ApplicationController
 
     get '/bills/:id' do #READ
         redirect to "/" if !is_logged_in?
-        @bill = Bill.find(params[:id])
-        erb :'/bills/show'
+        @bill = Bill.find_by_id(params[:id])
+
+        if @bill && @bill.user_id == current_user.id 
+            erb :'bills/show'
+        else
+            redirect to "/bills"
+        end
     end
 
     get '/bills' do 
         redirect to "/" if !is_logged_in?
-        @bills = Bill.all
+        @bills = current_user.bills
         erb :'bills/index'
     end
 
     get '/bills/:id/edit' do #UPDATE
         redirect to "/" if !is_logged_in?
-        @bill = Bill.find(params[:id])
-        erb :'bills/edit'
+        @bill = Bill.find_by_id(params[:id])
+
+
+        if @bill && @bill.user_id == current_user.id 
+            erb :'bills/edit'
+
+        else
+            redirect to "/bills"
+        end
     end 
 
     patch '/bills/:id' do #Add 
         redirect to "/" if !is_logged_in?
-        @bill = Bill.find(params[:id])
+        @bill = Bill.find_by_id(params[:id])
         @bill.update(
             name: params[:name],
             creditor: params[:creditor],
-            balance_owed: params[:balance_owed], #if block 0 if nil or empty
+            balance_owed: params[:balance_owed], 
             monthly_payment: params[:monthly_payment],
             due_date: params[:due_date]
         )
@@ -54,9 +66,14 @@ class BillsController < ApplicationController
     end 
 
     delete '/bills/:id' do #DELETE
-        bill = Bill.find(params[:id])
-        bill.destroy if bill && bill.user_id == current_user.id
-        redirect "/bills"
+        redirect to "/" if !is_logged_in?
+        bill = Bill.find_by_id(params[:id])
+
+        if bill && bill.user_id == current_user.id 
+            bill.destroy if bill && bill.user_id == current_user.id
+        else
+            redirect to "/bills"
+        end
     end
 
 end
